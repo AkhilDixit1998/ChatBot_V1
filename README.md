@@ -53,3 +53,6 @@ The 'run.py' script launches as:
 1. Python- 3.6
 2. Tensorflow- 2.0.0b0
 3. Tensorlayer- 2.0.2
+
+#### Code Working
+The code working is provided in comments in the respective scripts.
