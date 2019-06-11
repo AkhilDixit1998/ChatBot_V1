@@ -1,5 +1,3 @@
-#! /usr/bin/python
-# -*- coding: utf-8 -*-
 
 import tensorflow as tf
 import tensorlayer as tl
@@ -40,7 +38,7 @@ if __name__ == "__main__":
 
     batch_size = 32
     n_step = src_len // batch_size
-    src_vocab_size = len(metadata['idx2w']) # 8002 (0~8001)
+    src_vocab_size = len(metadata['idx2w'])
     emb_dim = 1024
 
     word2idx = metadata['w2idx']   # dict  word 2 index
@@ -85,11 +83,6 @@ if __name__ == "__main__":
         embedding_layer=tl.layers.Embedding(vocabulary_size=vocabulary_size, embedding_size=emb_dim),
         )
     
-
-    # Uncomment below statements if you have already saved the model
-
-    #load_weights = tl.files.load_npz(name='model.npz')
-    #tl.files.assign_weights(load_weights, model_)
 
     optimizer = tf.optimizers.Adam(learning_rate=0.1)
     model_.train()
