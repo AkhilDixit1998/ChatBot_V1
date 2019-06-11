@@ -36,17 +36,17 @@ if __name__ == '__main__':
 
     batch_size = 32
     n_step = src_len // batch_size
-    src_vocab_size = len(metadata['idx2w'])  # 8002 (0~8001)
+    src_vocab_size = len(metadata['idx2w'])  
     emb_dim = 1024
 
     word2idx = metadata['w2idx']  # dict  word 2 index
     idx2word = metadata['idx2w']  # list index 2 word
 
-    unk_id = word2idx['unk']  # 1
-    pad_id = word2idx['_']  # 0
+    unk_id = word2idx['unk'] 
+    pad_id = word2idx['_']  
 
-    start_id = src_vocab_size  # 8002
-    end_id = src_vocab_size + 1  # 8003
+    start_id = src_vocab_size 
+    end_id = src_vocab_size + 1 
 
     word2idx.update({'start_id': start_id})
     word2idx.update({'end_id': end_id})
@@ -81,7 +81,6 @@ if __name__ == '__main__':
         embedding_layer=tl.layers.Embedding(vocabulary_size=vocabulary_size, embedding_size=emb_dim),
     )
 
-    # Uncomment below statements if you have already saved the model
 
     load_weights = tl.files.load_npz(name='model.npz')
     tl.files.assign_weights(load_weights, model_)
